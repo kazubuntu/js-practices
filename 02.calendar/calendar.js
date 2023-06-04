@@ -7,20 +7,21 @@ const month = argv.m || new Date(Date.now()).getMonth() + 1;
 
 const SATURDAY = 6;
 
-const first = new Date(year, month - 1);
-const last = new Date(year, month, 0);
+const beginning_of_the_month = new Date(year, month - 1, 1);
+const end_of_the_month = new Date(year, month, 0);
 
 console.log(`      ${month}月 ${year}`);
 console.log("日 月 火 水 木 金 土");
 
-process.stdout.write("   ".repeat(first.getDay()));
-while (first <= last) {
-  process.stdout.write(first.getDate().toString().padStart(2));
-  if (first.getDay() === SATURDAY) {
-    console.log();
-  } else {
-    process.stdout.write(" ");
-  }
-  first.setDate(first.getDate() + 1);
+process.stdout.write("   ".repeat(beginning_of_the_month.getDay()));
+for (
+  const day_of_the_month = new Date(beginning_of_the_month);
+  day_of_the_month <= end_of_the_month;
+  day_of_the_month.setDate(day_of_the_month.getDate() + 1)
+) {
+  process.stdout.write(day_of_the_month.getDate().toString().padStart(2));
+  day_of_the_month.getDay() === SATURDAY
+    ? console.log()
+    : process.stdout.write(" ");
 }
 console.log();
