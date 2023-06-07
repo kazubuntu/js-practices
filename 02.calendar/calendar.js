@@ -7,12 +7,12 @@ const month = argv.m || new Date(Date.now()).getMonth() + 1;
 
 const SATURDAY = 6;
 
-const beginning_of_the_month = new Date(year, month - 1, 1);
+const beginningOfTheMonth = new Date(year, month - 1, 1);
 
 console.log(`      ${month}月 ${year}`);
 console.log("日 月 火 水 木 金 土");
 
-process.stdout.write("   ".repeat(beginning_of_the_month.getDay()));
+process.stdout.write("   ".repeat(beginningOfTheMonth.getDay()));
 
 const lastDay = new Date(year, month, 0).getDate();
 for (let day = 1; day <= lastDay; day++) {
