@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>非同期処理(JavaScript)の課題</title>
+  </head>
+  <body>
+    <p>コンソールにフィヨルドブートキャンプのトップページのHTMLを出力します</p>
+
+    <script>
+      (async function () {
+        const response = await fetch("https://bootcamp.fjord.jp/");
+        console.log(await response.text());
+      })();
+    </script>
+  </body>
+</html>
