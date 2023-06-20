@@ -9,9 +9,9 @@ export class Memo {
 
   static db;
 
-  static async dbConnect() {
+  static async dbConnect(dbName) {
     Memo.db = await open({
-      filename: "memo.sqlite3",
+      filename: dbName,
       driver: sqlite3.Database,
     });
     await Memo.db.run(

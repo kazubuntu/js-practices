@@ -4,9 +4,10 @@ import { Terminal } from "./terminal.mjs";
 import { Prompt } from "./prompt.mjs";
 
 const options = parseArgs(process.argv.slice(2));
+const DBNAME = "memo.sqlite3";
 
 (async () => {
-  await Memo.dbConnect();
+  await Memo.dbConnect(DBNAME);
   const memos = await Memo.all();
 
   if (options.r) {
