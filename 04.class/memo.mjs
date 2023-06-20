@@ -25,7 +25,7 @@ export class Memo {
 
   static async all() {
     const memos = await Memo.db.all(
-      "SELECT id AS value, content AS name, title AS message FROM memos"
+      "SELECT id AS value, content AS name, title AS message FROM memos ORDER BY id ASC"
     );
     return memos;
   }
